@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gabriela Santoyo</title>
+  <script>
+    window.pixelId = "6a3994bbf817ee06d674240c";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
   <style>
     * {
       margin: 0;
@@ -22,7 +30,6 @@
       padding: 20px;
     }
 
-    /* ── Barra de aviso ── */
     .warning-bar {
       background-color: #b30000;
       color: #fff;
@@ -38,29 +45,12 @@
       line-height: 1.4;
     }
 
-    /* ── Bloco VSL ── */
     .vsl-wrapper {
       width: 100%;
       max-width: 680px;
       margin-bottom: 28px;
     }
 
-    /* 
-      ════════════════════════════════════════════════
-      COLE O CÓDIGO DO SEU PLAYER DE VSL AQUI DENTRO
-      (VTurb, Vimeo, YouTube embed, etc.)
-      O div.vsl-wrapper já tem aspect-ratio 16:9.
-      ════════════════════════════════════════════════
-    */
-    .vsl-placeholder {
-      color: #555;
-      font-size: 0.9rem;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-
-    /* ── Headline ── */
     .headline {
       font-size: 1.4rem;
       font-weight: bold;
@@ -73,17 +63,6 @@
       line-height: 1.4;
     }
 
-    /* ── Subheadline ── */
-    .subheadline {
-      font-size: 1rem;
-      text-align: center;
-      color: #ccc;
-      max-width: 520px;
-      margin-bottom: 28px;
-      line-height: 1.6;
-    }
-
-    /* ── Contador de viewers ── */
     .viewers-bar {
       display: flex;
       align-items: center;
@@ -118,7 +97,6 @@
       color: #fff;
     }
 
-    /* ── Rodapé ── */
     footer {
       margin-top: auto;
       font-size: 0.75rem;
@@ -131,12 +109,10 @@
 </head>
 <body>
 
-  <!-- AVISO DE URGÊNCIA -->
   <div class="warning-bar">
     ⚠️ AVISO: Debido a la naturaleza sensible de este contenido, esta página saldrá del aire a medianoche del día de hoy.
   </div>
 
-  <!-- VSL PLAYER -->
   <div class="vsl-wrapper">
     <vturb-smartplayer id="ab-6a3976358136b4416dd4a830" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
     <script type="text/javascript">
@@ -147,31 +123,24 @@
     </script>
   </div>
 
-  <!-- CONTADOR DE VIEWERS -->
   <div class="viewers-bar">
     <span class="viewers-dot"></span>
     <span><span id="viewer-count">233</span> personas viendo ahora</span>
   </div>
 
-  <!-- HEADLINE -->
   <h1 class="headline">Este contenido será removido en breve:</h1>
 
-  <!-- RODAPÉ -->
-  <footer>Copyright 2025 – Todos los derechos reservados.</footer>
+  <footer>Copyright 2026 – Todos los derechos reservados.</footer>
 
   <script>
-    // Contador que sobe rápido, com pequenas variações aleatórias
     let count = 233;
     const el = document.getElementById('viewer-count');
 
     function updateCount() {
-      // Sobe entre 1 e 4 a cada tick
       const delta = Math.floor(Math.random() * 4) + 1;
       count += delta;
-      // Mantém num range realista (200–520)
       if (count > 520) count = 200 + Math.floor(Math.random() * 40);
       el.textContent = count;
-      // Intervalo entre 400ms e 900ms
       const next = 400 + Math.floor(Math.random() * 500);
       setTimeout(updateCount, next);
     }
