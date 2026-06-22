@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Secreto Íntimo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #fff;
+      color: #1a1a1a;
+      font-family: Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    h1, h2, h3 {
+      font-family: Arial, sans-serif;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    h1 { font-size: 1.7rem; color: #8b0030; }
+    h2 { font-size: 1.3rem; color: #1a1a1a; margin-top: 40px; }
+    h3 { font-size: 1.1rem; color: #1a1a1a; margin-top: 32px; }
+
+    p { margin-bottom: 16px; }
+
+    ul {
+      margin: 16px 0 16px 20px;
+    }
+
+    ul li { margin-bottom: 10px; }
+
+    .rating {
+      color: #f5a623;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      font-family: Arial, sans-serif;
+    }
+
+    .trusted {
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 32px;
+    }
+
+    .bullets {
+      list-style: none;
+      margin-left: 0;
+      padding: 0;
+    }
+
+    .bullets li {
+      padding-left: 24px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .bullets li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #8b0030;
+      font-weight: bold;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 40px 0;
+    }
+
+    /* Tabela comparativa */
+    .comparison {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      margin: 24px 0;
+    }
+
+    .comparison th {
+      background: #f5f5f5;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .comparison td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .check { color: #2e7d32; font-weight: bold; }
+    .cross { color: #c62828; font-weight: bold; }
+
+    /* FAQ */
+    .faq-item { margin-bottom: 24px; }
+    .faq-item strong { display: block; margin-bottom: 6px; font-family: Arial, sans-serif; }
+
+    /* Preço e botão */
+    .price-box {
+      background: #fafafa;
+      border: 2px solid #8b0030;
+      border-radius: 8px;
+      padding: 32px 24px;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .price-box .product-name {
+      font-family: Arial, sans-serif;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .price-box .stars {
+      color: #f5a623;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    .price-box .price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #8b0030;
+      font-family: Arial, sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .price-box .guarantee {
+      font-size: 0.85rem;
+      color: #555;
+      font-family: Arial, sans-serif;
+      margin-top: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #8b0030;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 16px 48px;
+      border-radius: 50px;
+      margin-top: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+
+    .btn:hover { background: #6a0024; }
+
+    /* Depoimentos */
+    .testimonial {
+      border-left: 3px solid #8b0030;
+      padding-left: 16px;
+      margin-bottom: 28px;
+    }
+
+    .testimonial .author {
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADLINE -->
+  <div class="rating">★★★★★ (4,9/5)</div>
+  <div class="trusted">Con la confianza de más de 40.000 clientes</div>
+
+  <h1>El Secreto Íntimo™ | Restaura el equilibrio femenino natural en solo 14 días</h1>
+
+  <ul class="bullets">
+    <li>Restaura el bienestar íntimo femenino de forma natural</li>
+    <li>Fórmula con dosificación clínica de ingredientes activos</li>
+    <li>Elimina la causa raíz del desequilibrio, no solo los síntomas</li>
+    <li>Reaviva la confianza y la plenitud en la intimidad</li>
+    <li>¿Sin resultados? ¡Reembolso completo garantizado!</li>
+  </ul>
+
+  <hr class="divider" />
+
+  <!-- SECCIÓN 1 -->
+  <h2>Por qué tu cuerpo no responde como antes, aunque lo intentes todo</h2>
+
+  <p>¿Has notado que cada año se vuelve más difícil sentirte plena, con energía y en sintonía con tu cuerpo, a pesar de probar suplementos, cambios de hábitos y otros recursos?</p>
+
+  <p>La razón real con frecuencia no es la falta de voluntad ni la edad: es un <strong>desequilibrio interno que bloquea los procesos naturales de tu organismo.</strong></p>
+
+  <p>Los estudios muestran que <strong>más del 70% de las mujeres mayores de 40 años</strong> experimentan alguna forma de desequilibrio que afecta directamente su bienestar íntimo, causado por factores inflamatorios y hormonales que los suplementos convencionales no abordan correctamente.</p>
+
+  <p>En lugar de enmascarar los síntomas, la fórmula clínica de <strong>El Secreto Íntimo™</strong> actúa directamente sobre la causa raíz, restaurando el equilibrio desde adentro.</p>
+
+  <hr class="divider" />
+
+  <!-- SECCIÓN 2 -->
+  <h2>Por qué 7 de cada 10 mujeres mayores de 40 no logran resultados duraderos</h2>
+
+  <p>La mayoría de las mujeres nunca descubren la verdadera razón por la que su bienestar íntimo disminuye con los años.</p>
+
+  <ul>
+    <li><strong>El 70% de las dificultades íntimas femeninas</strong> después de los 40 tiene una causa metabólica o inflamatoria, no solo hormonal.</li>
+    <li>Las soluciones convencionales actúan sobre los síntomas, pero dejan intacta la causa que los genera.</li>
+    <li>Las mujeres con desequilibrios no tratados tienen mayor riesgo de fatiga crónica, irritabilidad y pérdida del bienestar general.</li>
+  </ul>
+
+  <p><strong>El Secreto Íntimo™ actúa con precisión sobre el origen del desequilibrio, restaurando el bienestar exactamente donde más se necesita.</strong></p>
+
+  <hr class="divider" />
+
+  <!-- SECCIÓN 3 -->
+  <h2>Lo que otras soluciones no pueden hacer, pero El Secreto Íntimo™ sí</h2>
+
+  <p>¿Por qué la fórmula clínica logra lo que todo lo demás no pudo?</p>
+
+  <ul>
+    <li><strong>Los suplementos genéricos</strong> contienen dosificaciones demasiado bajas para producir un efecto real en el organismo.</li>
+    <li><strong>Los tratamientos hormonales</strong> envían señales a un cuerpo que aún tiene bloqueos internos sin resolver.</li>
+    <li><strong>Los ingredientes clínicamente dosificados</strong> de El Secreto Íntimo™ actúan directamente sobre los factores de desequilibrio, en las concentraciones respaldadas por la investigación científica.</li>
+  </ul>
+
+  <p>El Secreto Íntimo™ es la primera fórmula diseñada para actuar sobre la causa raíz del desequilibrio femenino, en <strong>dosificaciones clínicamente validadas.</strong></p>
+
+  <hr class="divider" />
+
+  <!-- SECCIÓN 4 -->
+  <h2>Lo que ocurre en tu cuerpo desde las primeras 24 horas hasta la restauración completa</h2>
+
+  <ul>
+    <li><strong>Hora 24:</strong> Mejor calidad del sueño y una sensación suave de energía: las primeras señales de que la circulación y el equilibrio interno están mejorando.</li>
+    <li><strong>Día 3:</strong> El agotamiento comienza a ceder, a medida que los tejidos reciben los nutrientes que llevaban tiempo sin aprovechar.</li>
+    <li><strong>Día 7:</strong> Mayor vitalidad y bienestar íntimo perceptibles: la primera señal clara de restauración interna.</li>
+    <li><strong>Uso continuado:</strong> El bienestar íntimo se estabiliza de forma natural, la energía se mantiene y la confianza en el propio cuerpo regresa.</li>
+  </ul>
+
+  <hr class="divider" />
+
+  <!-- COMPARATIVA -->
+  <h2>Por qué El Secreto Íntimo™ funciona donde otros enfoques fallan</h2>
+
+  <p>La única fórmula que actúa sobre el origen del desequilibrio femenino, en lugar de limitarse a cubrir los síntomas.</p>
+
+  <table class="comparison">
+    <thead>
+      <tr>
+        <th>Beneficio</th>
+        <th>El Secreto Íntimo™</th>
+        <th>Otros suplementos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Actúa sobre la causa raíz</td><td class="check">✓</td><td class="cross">✗</td></tr>
+      <tr><td>Bienestar íntimo natural</td><td class="check">✓</td><td class="cross">✗</td></tr>
+      <tr><td>Protección del organismo a largo plazo</td><td class="check">✓</td><td class="cross">✗</td></tr>
+      <tr><td>Sin efectos secundarios conocidos</td><td class="check">✓</td><td class="cross">✗</td></tr>
+      <tr><td>Dosificación clínica</td><td class="check">✓</td><td class="check">✓</td></tr>
+      <tr><td>Respaldado por la ciencia</td><td class="check">✓</td><td class="cross">✗</td></tr>
+    </tbody>
+  </table>
+
+  <hr class="divider" />
+
+  <!-- GARANTIA -->
+  <h2>90 días de prueba sin riesgo — Resultados reales o no pagas nada</h2>
+
+  <p>Prueba El Secreto Íntimo™ durante 90 días y siente la diferencia: mayor vitalidad, bienestar íntimo restaurado y equilibrio duradero.</p>
+
+  <p>Si por cualquier razón no quedas completamente satisfecha, no pagas nada. Envía un correo y recibirás un <strong>reembolso rápido y sin complicaciones,</strong> sin preguntas.</p>
+
+  <p>Para ti no existe ningún riesgo. Solo la oportunidad de volverte a sentir como tú misma.</p>
+
+  <hr class="divider" />
+
+  <!-- DEPOIMENTOS -->
+  <h2>Lo que dicen nuestras clientas</h2>
+
+  <div class="testimonial">
+    <p>"Noté una diferencia real desde la segunda semana. Más energía, mejor humor y una sensación de equilibrio que no sentía hace años. Mi pareja también lo notó."</p>
+    <div class="author">— María, 54 años</div>
+  </div>
+
+  <div class="testimonial">
+    <p>"Después de tres semanas mi bienestar mejoró más que en cinco años probando otras cosas. Ojalá lo hubiera encontrado antes."</p>
+    <div class="author">— Carmen, 49 años</div>
+  </div>
+
+  <div class="testimonial">
+    <p>"Lo probé sin grandes expectativas. A partir de la cuarta semana todo cambió. De forma natural, sin pastillas ni tratamientos agresivos. ¡Lo recomiendo totalmente!"</p>
+    <div class="author">— Lucia, 61 años</div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PRECIO Y CTA -->
+  <div class="price-box">
+    <div class="product-name">El Secreto Íntimo™</div>
+    <div class="stars">★★★★★ (4,9/5)</div>
+    <div class="price">$29,90</div>
+    <div class="guarantee">✓ Resultados garantizados o reembolso completo en 90 días</div>
+    <br>
+    <a href="COLOCA_TU_URL_AQUI" class="btn">Comprar ahora</a>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- FAQ -->
+  <h2>Preguntas frecuentes</h2>
+
+  <div class="faq-item">
+    <strong>¿Cómo se toma El Secreto Íntimo™?</strong>
+    <p>Toma dos cápsulas al día con un vaso de agua, preferiblemente con una comida. Cada frasco contiene un suministro para 30 días. La toma diaria constante ofrece los mejores resultados.</p>
+  </div>
+
+  <div class="faq-item">
+    <strong>¿Cuánto tiempo tarda en hacer efecto?</strong>
+    <p>La mayoría de las mujeres sienten más energía en la primera semana. Una mejora perceptible del bienestar íntimo suele aparecer entre la segunda y tercera semana de uso diario.</p>
+  </div>
+
+  <div class="faq-item">
+    <strong>¿Qué ingredientes contiene?</strong>
+    <p>Una combinación de extractos vegetales activos en dosificaciones clínicas, sin químicos sintéticos ni ingredientes artificiales.</p>
+  </div>
+
+  <div class="faq-item">
+    <strong>¿Es seguro para el uso diario?</strong>
+    <p>Sí. El Secreto Íntimo™ utiliza extractos naturales sin efectos secundarios conocidos. Trabaja con los procesos naturales del cuerpo, no en su contra.</p>
+  </div>
+
+  <div class="faq-item">
+    <strong>¿Por qué otros suplementos no me han funcionado?</strong>
+    <p>Los suplementos convencionales contienen dosificaciones demasiado bajas para generar un efecto real. Ninguno actúa sobre la causa raíz del desequilibrio. El Secreto Íntimo™ sí lo hace.</p>
+  </div>
+
+  <div class="faq-item">
+    <strong>¿Qué pasa si no obtengo resultados?</strong>
+    <p>Estás protegida por una <strong>garantía de devolución de 90 días.</strong> Si no ves resultados, escríbenos y recibirás un reembolso completo, sin preguntas y sin complicaciones.</p>
+  </div>
+
+  <div class="faq-item">
+    <strong>¿Cuánto tiempo debo tomarlo?</strong>
+    <p>La mayoría de las mujeres toman El Secreto Íntimo™ durante 3 a 6 meses para una restauración completa, y continúan después con una dosis de mantenimiento para sostener los resultados.</p>
+  </div>
+
+  <div class="faq-item">
+    <strong>¿Puedo tomarlo junto con mis medicamentos actuales?</strong>
+    <p>Los ingredientes son de origen natural y generalmente compatibles con la mayoría de los medicamentos. Si tomas anticoagulantes u otros tratamientos específicos, consulta a tu médico antes.</p>
+  </div>
+
+</div>
+</body>
+</html>
