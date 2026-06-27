@@ -1,154 +1,516 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gabriela Santoyo</title>
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2340298299837297');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2340298299837297&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teste da Prosperidade</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      background-color: #0a0a0a;
-      color: #f0f0f0;
-      font-family: 'Georgia', serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
+  body {
+    background: #2a1a0a;
+    color: #fff;
+    font-family: 'Georgia', serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .warning-bar {
-      background-color: #b30000;
-      color: #fff;
-      font-size: 0.85rem;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      text-align: center;
-      padding: 10px 16px;
-      width: 100%;
-      max-width: 680px;
-      border-radius: 4px;
-      margin-bottom: 24px;
-      line-height: 1.4;
-    }
+  .container {
+    width: 100%;
+    max-width: 480px;
+    min-height: 100vh;
+    background: #2a1a0a;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 40px;
+  }
 
-    .vsl-wrapper {
-      width: 100%;
-      max-width: 680px;
-      margin-bottom: 28px;
-    }
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    min-height: 32px;
+  }
 
-    .headline {
-      font-size: 1.4rem;
-      font-weight: bold;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #fff;
-      max-width: 600px;
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
+  .back-btn {
+    background: none;
+    border: none;
+    color: #c9a84c;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
 
-    .viewers-bar {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      border-radius: 20px;
-      padding: 8px 18px;
-      margin-bottom: 22px;
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-      color: #e0e0e0;
-    }
+  .progress-bar-bg {
+    flex: 1;
+    height: 8px;
+    background: #4a3010;
+    border-radius: 4px;
+    overflow: hidden;
+  }
 
-    .viewers-dot {
-      width: 10px;
-      height: 10px;
-      background: #00e676;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #00e676;
-      animation: pulse 1.4s infinite;
-      flex-shrink: 0;
-    }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #c9a84c, #f0c040);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
-    }
+  .screen { display: none; flex-direction: column; flex: 1; }
+  .screen.active { display: flex; }
 
-    #viewer-count { font-weight: bold; color: #fff; }
+  .gender-row {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+  }
 
-    footer {
-      margin-top: auto;
-      font-size: 0.75rem;
-      color: #444;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 20px;
-    }
-  </style>
+  .gender-btn {
+    flex: 1;
+    max-width: 180px;
+    border: 2px solid #c9a84c;
+    border-radius: 14px;
+    background: #3a220a;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.15s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gender-btn:hover { transform: scale(1.03); background: #4a300e; }
+
+  .gender-btn img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .gender-btn span {
+    display: block;
+    padding: 12px;
+    font-size: 16px;
+    color: #f0c040;
+    font-weight: bold;
+  }
+
+  .q-title {
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 28px;
+    color: #fff;
+  }
+
+  .q-title em {
+    font-style: italic;
+    color: #f0e0a0;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .opt-btn {
+    background: #3a220a;
+    border: 1.5px solid #5a3a18;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 15px;
+    padding: 16px 20px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .opt-btn:hover { background: #4a2e10; border-color: #c9a84c; }
+  .opt-btn.selected { background: #5a3a10; border-color: #f0c040; }
+
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .chk-btn {
+    background: #3a220a;
+    border: 1.5px solid #5a3a18;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 13px;
+    padding: 14px 12px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.3;
+  }
+
+  .chk-btn.checked { background: #5a3a10; border-color: #f0c040; }
+
+  .chk-icon {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #c9a84c;
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chk-btn.checked .chk-icon::after {
+    content: '✓';
+    font-size: 12px;
+    color: #f0c040;
+  }
+
+  .transition-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .transition-screen p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #fff;
+  }
+
+  .transition-screen p strong { color: #f0c040; font-weight: bold; }
+
+  .transition-screen p .highlight {
+    background: #c9a84c;
+    color: #2a1a0a;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+
+  .main-btn {
+    background: linear-gradient(135deg, #c9a84c, #f0c040);
+    color: #2a1a0a;
+    border: none;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 18px 32px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+
+  .main-btn:hover { transform: scale(1.02); opacity: 0.92; }
+
+  .final-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    gap: 20px;
+  }
+
+  .final-screen .final-cta {
+    background: linear-gradient(135deg, #c9a84c, #f0c040);
+    color: #2a1a0a;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px 32px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.15s;
+  }
+
+  .final-screen .final-cta:hover { transform: scale(1.02); }
+
+  .loading-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .loading-text { font-size: 16px; color: #f0e0a0; }
+
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #4a3010;
+    border-top-color: #f0c040;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
 </head>
 <body>
+<div class="container">
 
-  <div class="warning-bar">
-    ⚠️ AVISO: Debido a la naturaleza sensible de este contenido, esta página saldrá del aire a medianoche del día de hoy.
+  <div class="progress-wrap" id="progress-wrap">
+    <button class="back-btn" id="back-btn" onclick="goBack()">←</button>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-fill" style="width:5%"></div>
+    </div>
   </div>
 
-  <div class="vsl-wrapper">
-    <vturb-smartplayer id="ab-6a3976358136b4416dd4a830" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
-    <script type="text/javascript">
-      var s = document.createElement("script");
-      s.src = "https://scripts.converteai.net/e2e167ab-be2b-4ff3-89f5-23c649c70174/ab-test/6a3976358136b4416dd4a830/player.js";
-      s.async = !0;
-      document.head.appendChild(s);
-    </script>
+  <!-- SCREEN 0: GÊNERO -->
+  <div class="screen active" id="screen-0">
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+      <h1 style="font-size:20px; color:#f0c040; margin-bottom:8px;">🎉 Parabéns!</h1>
+      <p style="font-size:15px; color:#e0d0b0; margin-bottom:28px;">Você já tem acesso ao Teste da Prosperidade<br><br>As palavras precisam saber: você é…</p>
+      <div class="gender-row">
+        <button class="gender-btn" onclick="selectGender('Homem')">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" alt="Homem">
+          <span>Homem</span>
+        </button>
+        <button class="gender-btn" onclick="selectGender('Mulher')">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&q=80" alt="Mulher">
+          <span>Mulher</span>
+        </button>
+      </div>
+    </div>
   </div>
 
-  <div class="viewers-bar">
-    <span class="viewers-dot"></span>
-    <span><span id="viewer-count">233</span> personas viendo ahora</span>
+  <!-- SCREEN 1: Idade -->
+  <div class="screen" id="screen-1">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <p class="q-title">Qual é a sua idade?</p>
+      <div class="options">
+        <button class="opt-btn" onclick="nextScreen()">18–24</button>
+        <button class="opt-btn" onclick="nextScreen()">25–34</button>
+        <button class="opt-btn" onclick="nextScreen()">35–44</button>
+        <button class="opt-btn" onclick="nextScreen()">45+</button>
+      </div>
+    </div>
   </div>
 
-  <h1 class="headline">Este contenido será removido en breve:</h1>
+  <!-- SCREEN 2: Frustração -->
+  <div class="screen" id="screen-2">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <p class="q-title">Você já se perguntou:<br><em>"Por que alguém que trabalha menos tem mais do que eu?"</em></p>
+      <div class="options">
+        <button class="opt-btn" onclick="nextScreen()">Sim, isso me frustra profundamente</button>
+        <button class="opt-btn" onclick="nextScreen()">Às vezes penso nisso</button>
+        <button class="opt-btn" onclick="nextScreen()">Raramente</button>
+        <button class="opt-btn" onclick="nextScreen()">Nunca</button>
+      </div>
+    </div>
+  </div>
 
-  <footer>Copyright 2025 – Todos los derechos reservados.</footer>
+  <!-- SCREEN 3: TRANSITION -->
+  <div class="screen" id="screen-3">
+    <div class="transition-screen">
+      <p>Essa pessoa provavelmente conhece <span class="highlight">frequências</span> que você ainda não conhece.</p>
+      <button class="main-btn" onclick="nextScreen()">Continuar</button>
+    </div>
+  </div>
 
-  <script>
-    let count = 233;
-    const el = document.getElementById('viewer-count');
+  <!-- SCREEN 4: Dinheiro entra -->
+  <div class="screen" id="screen-4">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <p class="q-title">Quando o dinheiro entra na sua vida, o que acontece logo depois?</p>
+      <div class="options">
+        <button class="opt-btn" onclick="nextScreen()">🖥️ Sempre aparece uma conta ou gasto inesperado</button>
+        <button class="opt-btn" onclick="nextScreen()">🕯️ Desaparece sem eu entender como</button>
+        <button class="opt-btn" onclick="nextScreen()">🙌 Fica intacto, mas tenho medo de usá-lo</button>
+        <button class="opt-btn" onclick="nextScreen()">🙏 Se multiplica de forma natural e harmoniosa</button>
+      </div>
+    </div>
+  </div>
 
-    function updateCount() {
-      const delta = Math.floor(Math.random() * 4) + 1;
-      count += delta;
-      if (count > 520) count = 200 + Math.floor(Math.random() * 40);
-      el.textContent = count;
-      const next = 400 + Math.floor(Math.random() * 500);
-      setTimeout(updateCount, next);
+  <!-- SCREEN 5: Muito dinheiro -->
+  <div class="screen" id="screen-5">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <p class="q-title">Quando penso em ter muito dinheiro, eu…</p>
+      <div class="options">
+        <button class="opt-btn" onclick="nextScreen()">😟 Sinto que não mereço ou não sou capaz</button>
+        <button class="opt-btn" onclick="nextScreen()">😰 Fico ansioso(a) e com medo de perder</button>
+        <button class="opt-btn" onclick="nextScreen()">😞 Me sinto culpado(a) por querer</button>
+        <button class="opt-btn" onclick="nextScreen()">😎 Sei que é meu por direito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 6: TRANSITION -->
+  <div class="screen" id="screen-6">
+    <div class="transition-screen">
+      <p>Sua resposta revela o seu <strong>bloqueio principal!</strong></p>
+      <button class="main-btn" onclick="nextScreen()">Continuar</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 7: Lei da Atração -->
+  <div class="screen" id="screen-7">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <p class="q-title">Você já tentou a Lei da Atração, pensamento positivo ou manifestação?</p>
+      <div class="options">
+        <button class="opt-btn" onclick="nextScreen()">Sim, várias vezes e NUNCA funcionou direito</button>
+        <button class="opt-btn" onclick="nextScreen()">Tentei, mas os resultados foram temporários</button>
+        <button class="opt-btn" onclick="nextScreen()">Nunca tentei de verdade</button>
+        <button class="opt-btn" onclick="nextScreen()">Funcionou perfeitamente pra mim</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 8: Salmo proibido -->
+  <div class="screen" id="screen-8">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <p class="q-title">E se eu te dissesse que uma oração do salmo proibido pode transformar sua realidade financeira em 40 dias? Você…</p>
+      <div class="options">
+        <button class="opt-btn" onclick="nextScreen()">🤩 Tentaria imediatamente</button>
+        <button class="opt-btn" onclick="nextScreen()">🤔 Ficaria muito curioso(a) para saber mais</button>
+        <button class="opt-btn" onclick="nextScreen()">✨ Precisaria entender primeiro como funciona</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 9: Maior desejo -->
+  <div class="screen" id="screen-9">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <p class="q-title">Qual é o seu maior desejo neste momento?</p>
+      <div class="options">
+        <button class="opt-btn" onclick="nextScreen()">Pagar todas as minhas dívidas</button>
+        <button class="opt-btn" onclick="nextScreen()">Ter uma reserva de emergência</button>
+        <button class="opt-btn" onclick="nextScreen()">Alcançar a liberdade financeira</button>
+        <button class="opt-btn" onclick="nextScreen()">Ajudar a minha família</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 10: TRANSITION -->
+  <div class="screen" id="screen-10">
+    <div class="transition-screen">
+      <p>As palavras se ajustam ao seu desejo específico…</p>
+      <button class="main-btn" onclick="nextScreen()">Continuar</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 11: Checkbox -->
+  <div class="screen" id="screen-11">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <p class="q-title">Marque o que você mais deseja manifestar nos próximos 30 dias:<br><small style="color:#c9a84c; font-size:13px;">(Seleção múltipla)</small></p>
+      <div class="checkbox-grid">
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Abundância financeira</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Paz interior</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Alegria</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Motivação</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Confiança</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Relacionamentos saudáveis</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Propósito</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Gratidão</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Clareza mental</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Pensamentos positivos</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Saúde física</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Foco</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Evolução pessoal</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Produtividade</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Manifestação de desejos</button>
+        <button class="chk-btn" onclick="toggleCheck(this)"><span class="chk-icon"></span>Paciência</button>
+      </div>
+      <button class="main-btn" onclick="nextScreen()">Continuar</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 12: Compromisso -->
+  <div class="screen" id="screen-12">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <p class="q-title" style="font-style:italic; color:#e0d0b0;">Aviso: as palavras têm consciência própria; podem se voltar contra quem as usa com má intenção.</p>
+      <p class="q-title" style="margin-top:16px;">Você se compromete a usar esse poder somente com propósitos nobres?</p>
+      <div class="options">
+        <button class="opt-btn" onclick="nextScreen()">🙏 Sim, me comprometo completamente</button>
+        <button class="opt-btn" onclick="nextScreen()">🤝 Não posso garantir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 13: LOADING -->
+  <div class="screen" id="screen-13">
+    <div class="loading-screen">
+      <div class="spinner"></div>
+      <p class="loading-text">Preparando sua leitura de prosperidade…</p>
+    </div>
+  </div>
+
+  <!-- SCREEN 14: FINAL CTA -->
+  <div class="screen" id="screen-14">
+    <div class="final-screen">
+      <button class="final-cta" onclick="goToVSL()">👉 Quero Desbloquear a Abundância</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  let currentScreen = 0;
+  const totalSteps = 13;
+  let gender = '';
+
+  const noBack = [0, 3, 6, 10, 13, 14];
+
+  function updateProgress() {
+    const wrap = document.getElementById('progress-wrap');
+    const fill = document.getElementById('progress-fill');
+    const backBtn = document.getElementById('back-btn');
+    if (currentScreen === 0 || currentScreen === 14) {
+      wrap.style.display = 'none';
+    } else {
+      wrap.style.display = 'flex';
+      const pct = Math.min(Math.round((currentScreen / totalSteps) * 100), 100);
+      fill.style.width = pct + '%';
+      backBtn.style.visibility = noBack.includes(currentScreen) ? 'hidden' : 'visible';
     }
+  }
 
-    setTimeout(updateCount, 800);
-  </script>
+  function showScreen(n) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-' + n).classList.add('active');
+    currentScreen = n;
+    updateProgress();
+    if (n === 13) setTimeout(() => showScreen(14), 2500);
+  }
 
+  function nextScreen() { showScreen(currentScreen + 1); }
+  function goBack() { if (currentScreen > 1) showScreen(currentScreen - 1); }
+  function selectGender(g) { gender = g; showScreen(1); }
+  function toggleCheck(btn) { btn.classList.toggle('checked'); }
+
+  function goToVSL() {
+    window.location.href = 'VSL_URL_AQUI'; // ← substitua pela URL da sua VSL
+  }
+
+  updateProgress();
+</script>
 </body>
 </html>
