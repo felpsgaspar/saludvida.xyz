@@ -4,6 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teste da Prosperidade</title>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1364391918948337');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1364391918948337&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -110,10 +127,7 @@
     color: #fff;
   }
 
-  .q-title em {
-    font-style: italic;
-    color: #f0e0a0;
-  }
+  .q-title em { font-style: italic; color: #f0e0a0; }
 
   .options {
     display: flex;
@@ -191,14 +205,8 @@
     gap: 24px;
   }
 
-  .transition-screen p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #fff;
-  }
-
+  .transition-screen p { font-size: 18px; line-height: 1.6; color: #fff; }
   .transition-screen p strong { color: #f0c040; font-weight: bold; }
-
   .transition-screen p .highlight {
     background: #c9a84c;
     color: #2a1a0a;
@@ -221,35 +229,6 @@
   }
 
   .main-btn:hover { transform: scale(1.02); opacity: 0.92; }
-
-  .final-screen {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 20px;
-    gap: 20px;
-  }
-
-  .final-screen .final-cta {
-    background: linear-gradient(135deg, #c9a84c, #f0c040);
-    color: #2a1a0a;
-    border: none;
-    border-radius: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 20px 32px;
-    cursor: pointer;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: transform 0.15s;
-  }
-
-  .final-screen .final-cta:hover { transform: scale(1.02); }
 
   .loading-screen {
     flex: 1;
@@ -278,6 +257,7 @@
 <body>
 <div class="container">
 
+  <!-- PROGRESS BAR -->
   <div class="progress-wrap" id="progress-wrap">
     <button class="back-btn" id="back-btn" onclick="goBack()">←</button>
     <div class="progress-bar-bg">
@@ -287,7 +267,7 @@
 
   <!-- SCREEN 0: GÊNERO -->
   <div class="screen active" id="screen-0">
-    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:0;">
       <h1 style="font-size:20px; color:#f0c040; margin-bottom:8px;">🎉 Parabéns!</h1>
       <p style="font-size:15px; color:#e0d0b0; margin-bottom:28px;">Você já tem acesso ao Teste da Prosperidade<br><br>As palavras precisam saber: você é…</p>
       <div class="gender-row">
@@ -463,10 +443,10 @@
     </div>
   </div>
 
-  <!-- SCREEN 14: FINAL CTA -->
+  <!-- SCREEN 14: VSL -->
   <div class="screen" id="screen-14">
-    <div class="final-screen">
-      <button class="final-cta" onclick="goToVSL()">👉 Quero Desbloquear a Abundância</button>
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:20px;">
+      <vturb-smartplayer id="vid-6a4048ea2f7698b129fe8dac" style="display: block; margin: 0 auto; width: 100%;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
     </div>
   </div>
 
@@ -505,10 +485,13 @@
   function goBack() { if (currentScreen > 1) showScreen(currentScreen - 1); }
   function selectGender(g) { gender = g; showScreen(1); }
   function toggleCheck(btn) { btn.classList.toggle('checked'); }
+  function goToVSL() { showScreen(14); }
 
-  function goToVSL() {
-    window.location.href = 'VSL_URL_AQUI'; // ← substitua pela URL da sua VSL
-  }
+  // VTurb player
+  var s = document.createElement("script");
+  s.src = "https://scripts.converteai.net/e2e167ab-be2b-4ff3-89f5-23c649c70174/players/6a4048ea2f7698b129fe8dac/v4/player.js";
+  s.async = !0;
+  document.head.appendChild(s);
 
   updateProgress();
 </script>
